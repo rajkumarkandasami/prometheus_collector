@@ -17,7 +17,7 @@ module PrometheusCollector::Server
       register_type_collectors
 
       unless collector.is_a?(PrometheusCollector::Server::CollectorBase)
-        raise WrongInheritance, 'Collector class must be inherited from PrometheusExporter::Server::CollectorBase'
+        raise WrongInheritance, 'Collector class must be inherited from PrometheusCollector::Server::CollectorBase'
       end
 
       server = server_class.new port: port, collector: collector, timeout: timeout, verbose: verbose

@@ -9,13 +9,13 @@ module PrometheusCollector::Server
   class WebServer
     attr_reader :collector
 
-    def initialize(port: , collector: nil, timeout: PrometheusExporter::DEFAULT_TIMEOUT, verbose: false)
+    def initialize(port: , collector: nil, timeout: PrometheusCollector::DEFAULT_TIMEOUT, verbose: false)
 
       @verbose = verbose
 
-      @metrics_total = PrometheusCollector::Metric::Counter.new("collector_metrics_total", "Total metrics processed by exporter web.")
+      @metrics_total = PrometheusCollector::Metric::Counter.new("collector_metrics_total", "Total metrics processed by collector web.")
 
-      @sessions_total = PrometheusCollector::Metric::Counter.new("collector_sessions_total", "Total send_metric sessions processed by exporter web.")
+      @sessions_total = PrometheusCollector::Metric::Counter.new("collector_sessions_total", "Total send_metric sessions processed by collector web.")
 
       @bad_metrics_total = PrometheusCollector::Metric::Counter.new("collector_bad_metrics_total", "Total mis-handled metrics by collector.")
 
@@ -68,7 +68,7 @@ module PrometheusCollector::Server
           handle_metrics(req, res)
         else
           res.status = 404
-          res.body = "Not Found! The Prometheus Ruby Exporter only listens on /metrics and /send-metrics"
+          res.body = "Not Found! The Prometheus Ruby Collector only listens on /metrics and /send-metrics"
         end
       end
     end

@@ -11,11 +11,11 @@ def run
   custom_type_collectors_filenames = []
 
   OptionParser.new do |opt|
-    opt.banner = "Usage: prometheus_exporter [options]"
+    opt.banner = "Usage: prometheus_collector [options]"
     opt.on('-p',
            '--port INTEGER',
            Integer,
-           "Port exporter should listen on (default: #{PrometheusCollector::DEFAULT_PORT})") do |o|
+           "Port collector should listen on (default: #{PrometheusCollector::DEFAULT_PORT})") do |o|
       options[:port] = o.to_i
     end
     opt.on('-t',
@@ -73,7 +73,7 @@ def run
 
   runner = PrometheusCollector::Server::Runner.new(options)
 
-  puts "#{Time.now} Starting prometheus exporter on port #{runner.port}"
+  puts "#{Time.now} Starting prometheus collector on port #{runner.port}"
   runner.start
   sleep
 end

@@ -39,7 +39,7 @@ module PrometheusCollector::Server
             keys = obj["custom_labels"].merge(keys)
           end
 
-          case obj["prometheus_exporter_action"]
+          case obj["prometheus_collector_action"]
           when 'increment'
             metric.increment(keys, obj["value"])
           when 'decrement'
