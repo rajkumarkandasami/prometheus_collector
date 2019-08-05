@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Rajkumar Kandasami"]
   spec.email         = ["rajkumar.kandasami@freshworks.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = %q{Prometheus Collector}
+  spec.description   = %q{Prometheus metric collector and exporter for Ruby}
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 
